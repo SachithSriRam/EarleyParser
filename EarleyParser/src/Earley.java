@@ -1,4 +1,11 @@
-
+/*
+ * Java Implementation of Earley Parser.
+ * Look at DotRule.java for class structure on how a grammar rule is represented.
+ * Designed three major functions of Earley's algorithm - Predict, Scan and Attach.
+ * Several speedup techniques have been implemented. They include optimizing (1)checking for predict rules-
+ * before adding them. (2) Looking for attach rules in O(1) time. (3) Left-Corner trick to add only the rules that
+ * are consistent with the next input rule
+ */
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

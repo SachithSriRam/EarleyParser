@@ -1,3 +1,13 @@
+/*
+ * Java Implementation of Earley Parser.
+ * The simplicity of the actual algorithm greatly depends on how one represents a grammar rule 
+ * in code. A dotted rule like A->BC.D represents that till BC has been parsed and D is left. 
+ * We have two classes representing Rule and DottedRule. Each Rule stores its constituents and its probability.
+ * A dotted rule contains the reference to the appropriate rule and dot position. It also has weight storing the 
+ * weight of the portion completed till the DOT. It has two backpointers to store its predecessors (the rules that 
+ * gave rise to it). Following the back-pointers gives us the parse.
+ */
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -83,9 +93,8 @@ public class DotRule {
 	double weight; // what should be its value. Currently setting to rule.weight
 	DotRule bckPointer1;
 	DotRule bckPointer2;
-	int identifier; //// switch this value to 1 even if one non-terminal on
-					//// right i.e. predict done using this rule
-
+	int identifier; //(Depreciated)
+	
 	DotRule(Rule rule, int dotPos, int colNum) {
 		this.rule = rule;
 		this.dotPos = dotPos;
