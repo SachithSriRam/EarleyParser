@@ -1,0 +1,24 @@
+A java implementation of Earley Parser.
+Look here for more details : https://en.wikipedia.org/wiki/Earley_parser
+This prints out the best parse. If multiple parses are possible, it chooses the one with the maximum probability.
+
+Build : 
+There are only two java files. Earley.java and DotRule.java.
+Go to src/ and do "javac *.java"
+
+Run :
+In src : java Earley <path_to_grammar_File> <path_to_sentences_file>
+
+Input : 
+Prepare a grammar file which has one rule in every line.
+Each rule should start with a probability of that rule. If you are unsure of it, just put 1 for all. Do look at grammars in test folder for an idea of input
+Each Terminal/Non-Terminal in a rule is delimited by a whitespace.
+Our parser isn't compatible with rules like A-><epsilon> (where <epsilon> denotes empty string)
+The file with sentences must have one on each line.
+
+Output:
+For each sentence, if it has a parse, the program returns the best parse(one with max. probability) along with the value of the probability. Probabilities are reported in -log2 form.
+Else returns NONE.
+
+PS : Several Optimizations are done to the parser, like Left-Corner trick, O(1) look-ups for attach ,etc.
+I did my best to document them in the code. 
